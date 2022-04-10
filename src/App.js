@@ -6,20 +6,19 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>BIENVENIDOS</h1>
+        <h2>-By: Josefina Alonso-</h2>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/josealonso01"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Click aqui para acceder a mi repositorio 
         </a>
       </header>
     </div>
   );
 }
-
 export default App;
+
