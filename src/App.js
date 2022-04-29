@@ -3,12 +3,14 @@ import './App.css';
 import NavBar from './components/NavBar';
 import { CartWidget } from './components/CartWidget';
 import ItemListContainer from './components/ItemListContainer';
+import Items from './components/Items';
 
 function App() {
   return (
     <>
-      <NavBar></NavBar>
-      <ItemListContainer greeting='BEBE A BORDO WEBSITE'></ItemListContainer>
+      <NavBar/>
+      <ItemListContainer greeting='TIENDA ONLINE'/>
+      <Items/>
     </>
   );
 }

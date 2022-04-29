@@ -41,7 +41,7 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-            <CartWidget></CartWidget>
+            <CartWidget/>
         </div>
 
     )
