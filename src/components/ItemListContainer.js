@@ -1,17 +1,28 @@
-const ItemListContainer = ({ greeting }) => {
+import { useEffect, useState } from "react";
+import { data } from "./data/datos";
+import ItemCard from "./ItemCard";
+
+
+const ItemListContainer = () => {
+
+    const [Item, setItem] = useState([])
+
+    useEffect(() => {
+        const getItem = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(data)
+            }, 2000)
+        })
+        getItem.then((result) => {
+            console.log('se concreto la promesa', result);
+            setItem(result)
+        })
+    }, [])
     return (
-        <div class="hero min-h-screen bg-base-200">
-            {greeting}
-            <div class="hero-content flex-col lg:flex-row">
-                <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/120/394/products/crochet_logo-031-434606d56923d69acb15971185541473-1024-1024.jpg" class="max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                    <h1 class="text-5xl font-bold">Bienvenidos</h1>
-                    <p class="py-6">Nosotros somos un emprendimiento dedicado a hacer cosas al crochet para bebes, todo confeccionado 100% a mano y con mucho amor</p>
-                    <button class="btn btn-primary">Ingresa a la tienda</button>
-                </div>
-            </div>
-        </div>
-    )
-}
+         < div style = {{ border: 'solid #1f242d 2px' }}> { Item.map(Item => <ItemCard key={Item.id} itemData={Item} />) }</div > 
+
+        )
+        }
+
 
 export default ItemListContainer

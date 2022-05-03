@@ -3,14 +3,15 @@ import './App.css';
 import NavBar from './components/NavBar';
 import { CartWidget } from './components/CartWidget';
 import ItemListContainer from './components/ItemListContainer';
-import Items from './components/Items';
+import Item from './components/Item';
+
 
 function App() {
   return (
     <>
       <NavBar/>
-      <ItemListContainer greeting='TIENDA ONLINE'/>
-      <Items/>
+      <Item greeting='TIENDA ONLINE'/>
+      <ItemListContainer/>
     </>
   );
 }
