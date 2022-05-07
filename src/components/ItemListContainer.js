@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { data } from "./data/datos";
-import ItemCard from "./ItemCard";
+import ItemList from "./ItemList";
 
 
 const ItemListContainer = () => {
@@ -18,11 +18,10 @@ const ItemListContainer = () => {
             setItem(result)
         })
     }, [])
-    return (
-         < div style = {{ border: 'solid #1f242d 2px' }}> { Item.map(Item => <ItemCard key={Item.id} itemData={Item} />) }</div > 
-
-        )
-        }
+        return (
+            <ItemList Item={Item}/> 
+        ) 
+}
 
 
 export default ItemListContainer
