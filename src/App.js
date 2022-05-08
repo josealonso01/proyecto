@@ -1,22 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
-import { CartWidget } from './components/CartWidget';
-import ItemListContainer from './components/ItemListContainer';
-import Item from './components/Item';
-import ItemDetail from './components/ItemDetail';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemList from './components/ItemList';
+import ListPage from './pages/ListPage';
+import DetailPage from './pages/DetailPage';
 
 
 function App() {
   return (
-    <>
-      <NavBar/>
-      <Item greeting='TIENDA ONLINE'/>
-      <ItemListContainer/>
-      <ItemDetailContainer id={1} />
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<ListPage/>}/>
+        <Route path='/category/:id' element={<ListPage/>}/>
+        <Route path='/item/:id' element={<DetailPage/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;

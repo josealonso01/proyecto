@@ -6,7 +6,7 @@ const ItemCard = ({ itemData }) => {
 
             <figure><img src={itemData.img} /></figure>
             <div class="card-body">
-                <h2 class="card-title">{itemData.name}</h2>
+            <link to={`/item/:id`}> <a class="card-title">{itemData.name}</a></link>
                 <p>Stock: {itemData.stock}</p>
             </div>
         </div>
