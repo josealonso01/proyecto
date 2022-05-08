@@ -1,11 +1,13 @@
 import CartWidget from "./CartWidget"
+import {Link} from 'react-router-dom';
+
 
 const NavBar = () => {
     return (
         <div>
             <div class="navbar bg-base-100">
                 <div class="flex-1">
-                    <link to={`/`}><a class="btn btn-ghost normal-case text-xl">Bebe a Bordo</a></link>
+                    <Link to='/'class='btn btn-ghost normal-case text-xl'> Bebe a Bordo</Link>
                 </div>
                 <div class="flex-none">
                     <div class="dropdown dropdown-end">

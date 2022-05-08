@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
+
 
 const ItemCard = ({ itemData }) => {
     return (
@@ -6,7 +8,7 @@ const ItemCard = ({ itemData }) => {
 
             <figure><img src={itemData.img} /></figure>
             <div class="card-body">
-            <link to={`/item/:id`}> <a class="card-title">{itemData.name}</a></link>
+            <Link to= {`/item/${itemData.id}`}> <p> {itemData.name} </p></Link>
                 <p>Stock: {itemData.stock}</p>
             </div>
         </div>

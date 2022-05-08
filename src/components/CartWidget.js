@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom"
+
 const CartWidget = () => {
     return (
         <div class="navbar bg-base-100">
             <div class="flex-none">
                 <ul class="menu menu-horizontal p-0">
-                    <li><a>Artesanias</a></li>
+                    <Link to='/category/:id'><li><a>Artesanias</a></li></Link>
                     <li tabindex="0">
                         <a>
                             Decoracion
