@@ -8,7 +8,7 @@ const ItemCard = ({ itemData }) => {
 
             <figure><img src={itemData.img} /></figure>
             <div class="card-body">
-            <Link to= {`/item/${itemData.id}`}> <p> {itemData.name} </p></Link>
+            <Link to= {`/item/${itemData.id}`}> <button class="btn btn-secondary"> {itemData.name} </button></Link>
                 <p>Stock: {itemData.stock}</p>
             </div>
         </div>

@@ -2,10 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import ItemListContainer from '../components/ItemListContainer'
 
-const ListPage = () => {
-  const {id} = useParams();
+const ListPage = ()  => {
+  const {category} = useParams();
+  console.log('Esta es la category',category)
   return (
-    <div><ItemListContainer id={parseInt(id)}/></div>
+    <div><ItemListContainer category={category}/></div>
   )
 }
 

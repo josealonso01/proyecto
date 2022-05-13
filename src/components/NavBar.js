@@ -1,5 +1,4 @@
-import CartWidget from "./CartWidget"
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -7,7 +6,14 @@ const NavBar = () => {
         <div>
             <div class="navbar bg-base-100">
                 <div class="flex-1">
-                    <Link to='/'class='btn btn-ghost normal-case text-xl'> Bebe a Bordo</Link>
+                    <Link to='/' class='btn btn-ghost normal-case text-xl'> Bebe a Bordo</Link>
+                    <div class="flex-none">
+                        <ul class="menu menu-horizontal p-0">
+                            <Link to='/category/banquito'><li><a>Banquitos</a></li></Link>
+                            <Link to='/category/cuadro'><li><a>Cuadros</a></li></Link>
+                            <Link to='/category/muñeco'><li><a>Muñecos</a></li></Link>
+                        </ul>
+                    </div>
                 </div>
                 <div class="flex-none">
                     <div class="dropdown dropdown-end">
@@ -43,7 +49,6 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-            <CartWidget/>
         </div>
 
     )

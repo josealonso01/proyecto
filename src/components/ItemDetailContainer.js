@@ -9,7 +9,7 @@ const ItemDetailContainer = ({ id }) => {
         const getItem = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(data)
-            }, 3000)
+            }, 1000)
         })
         getItem.then((result) => {
             setDetail(result.find(

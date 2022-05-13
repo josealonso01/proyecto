@@ -11,11 +11,11 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<ListPage/>}/>
-        <Route path='/category/:id' element={<ListPage/>}/>
+        <Route path='/category/:category?' element={<ListPage/>}/>
         <Route path='/item/:id' element={<DetailPage/>}/>
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 export default App;
 

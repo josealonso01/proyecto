@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { data } from "./data/datos";
 import ItemList from "./ItemList";
+import NavBar from "./NavBar";
 
-
-const ItemListContainer = () => {
+const ItemListContainer = ({category}) => {
 
     const [Item, setItem] = useState([])
 
@@ -14,13 +14,18 @@ const ItemListContainer = () => {
             }, 2000)
         })
         getItem.then((result) => {
-            console.log('se concreto la promesa', result);
-            setItem(result)
+            console.log('Category en itemlistcontainer', category);
+            if (category === undefined)
+                setItem(result)
+            else
+                setItem(result.filter(
+                    (element) => element.category === category
+                ))
         })
     }, [])
-        return (
-            <ItemList Item={Item}/> 
-        ) 
+    return (
+        <ItemList Item={Item} />
+    )
 }
 
 
