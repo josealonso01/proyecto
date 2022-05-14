@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { data } from "./data/datos";
 import ItemList from "./ItemList";
-import NavBar from "./NavBar";
 
 const ItemListContainer = ({category}) => {
 
@@ -22,11 +21,10 @@ const ItemListContainer = ({category}) => {
                     (element) => element.category === category
                 ))
         })
-    }, [])
+    }, [category])
     return (
         <ItemList Item={Item} />
     )
 }
-
 
 export default ItemListContainer
