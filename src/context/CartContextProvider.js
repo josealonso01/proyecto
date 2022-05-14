@@ -25,10 +25,22 @@ const CartContextProvider = ({ children }) => {
         return cartList.some((item) => item.id === id);
     }
 
+    function removeItem(id) {
+        return cartList.splice((itemId) => itemId === id)
+
+    }
+
+    function deleteItem() {
+        setCartList([]);
+    }
+
     return (
         <CartContext.Provider
             value={{
                 addToCart,
+                setCartList,
+                removeItem,
+                deleteItem,
             }}
         >
             {children}

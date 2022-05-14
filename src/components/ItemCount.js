@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const ItemCount = ({ initial, stock, onAdd }) => {
     const [count, setCount] = useState(initial);
 
-    const handleSubstract = () => {
+    const handleRemove = () => {
         if (count > initial) {
             setCount((counter) => counter - 1);
         }
@@ -18,7 +18,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         <div>
             <div>
                 <div class="btn-group">
-                    <button onClick={handleSubstract} class="btn">«</button>
+                    <button onClick={handleRemove} class="btn">«</button>
                     <button class="btn">{count}</button>
                     <button onClick={handleAdd} class="btn">»</button>
                     <button class="btn btn-secondary" onClick={() => onAdd(count)}> AGREGAR AL CARRITO </button>
