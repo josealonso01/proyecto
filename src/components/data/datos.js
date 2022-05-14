@@ -1,8 +1,8 @@
 export const data = [
-    {id:1, name:'UNICORNIO', price:'5000', stock:'2', img: 'https://josealonso01.github.io/bebeabordoweb/fotos/banquito.jpg', detailText:'Banquito de madera con unicornio hecho 100% al crochet, colores a eleccion, 50cm. de alto', category:'banquito'},
-    {id:2, name:'STITCH', price:'2500', stock:'5', img: 'https://josealonso01.github.io/bebeabordoweb/fotos/stitch.jpg', category:'muñeco'},
-    {id:3, name:'OSITO', price:'3000', stock:'3', img:'https://josealonso01.github.io/bebeabordoweb/fotos/osobostero.png', category:'muñeco'},
-    {id:4, name:'ARCOIRIS', price:'4000', stock:'4', img: 'https://josealonso01.github.io/bebeabordoweb/fotos/arcoiris.png', category:'cuadro'},
+    {id:1, name:'UNICORNIO', price:'5000', stock:'2', img: 'https://josealonso01.github.io/bebeabordoweb/fotos/banquito.jpg', detailText:'Banquito de madera con unicornio hecho 100% al crochet, colores a eleccion, 50cm. de alto.', category:'banquito'},
+    {id:2, name:'STITCH', price:'2500', stock:'5', img: 'https://josealonso01.github.io/bebeabordoweb/fotos/stitch.jpg', detailText:'Muñeco del personaje stitch 100% hecho al crochet, 20cm. de alto.', category:'muñeco'},
+    {id:3, name:'OSITO', price:'3000', stock:'3', img:'https://josealonso01.github.io/bebeabordoweb/fotos/osobostero.png', detailText:'Osito al crochet, colores de la camiseta y pelota a eleccion, 40cm. de alto.', category:'muñeco'},
+    {id:4, name:'ARCOIRIS', price:'4000', stock:'4', img: 'https://josealonso01.github.io/bebeabordoweb/fotos/arcoiris.png',detailText:'Cuadro colgante con forma de arcoiris, colores a eleccion.', category:'cuadro'},
 ]
 
 

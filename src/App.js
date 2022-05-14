@@ -3,10 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
 import ListPage from './pages/ListPage';
 import DetailPage from './pages/DetailPage';
+import CartContextProvider, { CartContext } from './context/CartContextProvider';
 
 
 function App() {
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <NavBar />
       <Routes>
@@ -15,6 +17,7 @@ function App() {
         <Route path='/item/:id' element={<DetailPage/>}/>
       </Routes>
     </BrowserRouter>
+    </CartContextProvider>
   )
 }
 export default App;

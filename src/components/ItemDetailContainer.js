@@ -5,6 +5,7 @@ import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = ({ id }) => {
     const [detailItem, setDetail] = useState([])
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const getItem = new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -16,9 +17,10 @@ const ItemDetailContainer = ({ id }) => {
                 (element) => element.id === id
             ))
         })
+        getItem.finally(() => setLoading(false));
     }, [])
     return (
-        <ItemDetail detailItem={detailItem} />
+        <>{loading ? <h1>Cargando...</h1> : <ItemDetail  detailItem={detailItem} />}</>
     )
 }
 

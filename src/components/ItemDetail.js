@@ -1,6 +1,16 @@
 import React from 'react'
+import { useCartContext } from '../context/CartContextProvider';
+import ItemCount from './ItemCount';
 
-const ItemDetail = ({detailItem}) => {
+
+export default function ItemDetail({ detailItem }) {
+    const { addToCart } = useCartContext();
+
+    function handleOnAdd(count) {
+        console.log(count);
+        addToCart(detailItem, count);
+    }
+
     return (
         <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col lg:flex-row">
@@ -8,11 +18,9 @@ const ItemDetail = ({detailItem}) => {
                 <div>
                     <h1 class="text-5xl font-bold"> {detailItem.name} </h1>
                     <p class="py-6"> {detailItem.detailText} </p>
-                    <button class="btn btn-primary"> ${detailItem.price} COMPRAR </button>
+                    <ItemCount initial={1} stock={detailItem.stock} onAdd={handleOnAdd} />
                 </div>
             </div>
         </div>
     )
 }
-
-export default ItemDetail
