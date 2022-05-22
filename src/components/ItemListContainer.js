@@ -1,30 +1,39 @@
 import { useEffect, useState } from "react";
-import { data } from "./data/datos";
 import ItemList from "./ItemList";
+import { collection, doc, getDocs, getFirestore, query, snapshotEqual, where } from "firebase/firestore";
 
-const ItemListContainer = ({category}) => {
-
-    const [Item, setItem] = useState([])
-
-    useEffect(() => {
-        const getItem = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(data)
-            }, 2000)
-        })
-        getItem.then((result) => {
-            console.log('Category en itemlistcontainer', category);
-            if (category === undefined)
-                setItem(result)
-            else
-                setItem(result.filter(
-                    (element) => element.category === category
-                ))
-        })
-    }, [category])
+const ItemListContainer = ({ category }) => {
+        const [Items, setItems] = useState()
+        
+        useEffect(() => {
+            getItems()
+        }, [])
+    
+        const getItems = () => {
+            const db = getFirestore()
+            const itemCollection = collection(db, 'items')
+            getDocs(itemCollection).then( snapshot =>  
+                {
+                    if(snapshot.size > 0){
+                        var listOfObjects = snapshot.data;
+                        
+                        if (category === undefined){
+                            const result = snapshot.docs.map( d => ({'id':d.id, ... d.data()}))
+                            setItems(result)
+                        }
+                        else{ 
+                            const result = snapshot.docs.map( d => category == d.category ? ({'id':d.id, ... d.data()}) : null)
+                            setItems(result)
+                        }
+                        
+    
+                    }
+                } )
+    }
     return (
-        <ItemList Item={Item} />
-    )
-}
+        <ItemList Items={Items} />
+    ) 
+    }
+    
 
 export default ItemListContainer
