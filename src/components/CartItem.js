@@ -3,8 +3,8 @@ import React from 'react'
 const CartItem = ({ item, removeItem }) => {
     return (
         <div>
-            <div class="overflow-x-auto w-full">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -18,14 +18,14 @@ const CartItem = ({ item, removeItem }) => {
                     <tbody>
                         <tr>
                             <td>
-                                <div class="flex items-center space-x-3">
-                                    <div class="avatar">
-                                        <div class="mask mask-squircle w-12 h-12">
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
                                             <img src={item.img} />
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="font-bold">{item.name}</div>
+                                        <div className="font-bold">{item.name}</div>
                                     </div>
                                 </div>
                             </td>
@@ -38,7 +38,7 @@ const CartItem = ({ item, removeItem }) => {
                             <td>${item.price}</td>
                         <td>${item.quantity * item.price}</td>
                         <th>
-                                <button class='btn' onClick={() => removeItem(item.id)}>Eliminar Item</button>
+                                <button className='btn' onClick={() => removeItem(item.id)}>Eliminar Item</button>
                             </th>
                         </tr>
                     </tbody>

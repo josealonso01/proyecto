@@ -1,39 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ItemList from "./ItemList";
-import { collection, doc, getDocs, getFirestore, query, snapshotEqual, where } from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
-const ItemListContainer = ({ category }) => {
-        const [Items, setItems] = useState()
+const ItemListContainer = ({category}) => {
+    const [Items, setItems] = useState()
+    const [end, SetEnd] = useState(false);
+    useEffect(() => {
+        getItems()
+        SetEnd(true)
+    }, [])
+
+    const getItems = () => {
+        const db = getFirestore()
+        const itemCollection = collection(db, 'items')
+        getDocs(itemCollection).then(snapshot => {
+            if (snapshot.size > 0){
+                const ids = snapshot.docs.map(d => d.id).join(',')
+                console.log('ids', ids);
+                const itemsData = snapshot.docs.map(d => ({'id': d.id, ... d.data()}))
+                console.log(itemsData);
+                setItems(itemsData)
+                if (category === undefined){
+                    console.log('category indefinida');
+                }else{
+                    console.log('categoria definida');
+                }
+            }
         
-        useEffect(() => {
-            getItems()
-        }, [])
-    
-        const getItems = () => {
-            const db = getFirestore()
-            const itemCollection = collection(db, 'items')
-            getDocs(itemCollection).then( snapshot =>  
-                {
-                    if(snapshot.size > 0){
-                        var listOfObjects = snapshot.data;
-                        
-                        if (category === undefined){
-                            const result = snapshot.docs.map( d => ({'id':d.id, ... d.data()}))
-                            setItems(result)
-                        }
-                        else{ 
-                            const result = snapshot.docs.map( d => category == d.category ? ({'id':d.id, ... d.data()}) : null)
-                            setItems(result)
-                        }
-                        
-    
-                    }
-                } )
-    }
-    return (
-        <ItemList Items={Items} />
-    ) 
-    }
-    
+        })
 
+
+    }
+
+    return (
+        <>{end ? <h1>Cargando...</h1> : <ItemList Items={Items} ></ItemList>}</>
+    )
+}
 export default ItemListContainer

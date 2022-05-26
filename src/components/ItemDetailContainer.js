@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { data } from "./data/datos";
 import ItemDetail from './ItemDetail';
+import 'firebase/functions';
 
 const ItemDetailContainer = ({ id }) => {
     const [detailItem, setDetail] = useState([])

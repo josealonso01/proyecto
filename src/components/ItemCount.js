@@ -17,11 +17,11 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     return (
         <div>
             <div>
-                <div class="btn-group">
-                    <button onClick={handleRemove} class="btn">«</button>
-                    <button class="btn">{count}</button>
-                    <button onClick={handleAdd} class="btn">»</button>
-                    <button class="btn btn-secondary" onClick={() => onAdd(count)}> AGREGAR AL CARRITO </button>
+                <div className="btn-group">
+                    <button onClick={handleRemove} className="btn">«</button>
+                    <button className="btn">{count}</button>
+                    <button onClick={handleAdd} className="btn">»</button>
+                    <button className="btn btn-secondary" onClick={() => onAdd(count)}> AGREGAR AL CARRITO </button>
                 </div>
             </div>
         </div>
