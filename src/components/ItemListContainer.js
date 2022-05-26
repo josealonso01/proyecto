@@ -8,7 +8,7 @@ const ItemListContainer = ({category}) => {
     useEffect(() => {
         getItems()
         SetEnd(true)
-    }, [])
+    }, [category])
 
     const getItems = () => {
         const db = getFirestore()
@@ -26,7 +26,6 @@ const ItemListContainer = ({category}) => {
                     console.log('categoria definida');
                 }
             }
-        
         })
 
 
