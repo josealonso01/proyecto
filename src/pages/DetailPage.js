@@ -3,9 +3,8 @@ import { useParams } from 'react-router-dom'
 import ItemDetailContainer from '../components/ItemDetailContainer'
 
 const DetailPage = () => {
-  const {id} = useParams();
   return (
-    <div> <ItemDetailContainer id={parseInt(id)}/> </div>
+    <div> <ItemDetailContainer/> </div>
   )
 }
 export default DetailPage

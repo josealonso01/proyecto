@@ -1,10 +1,15 @@
 import React from 'react'
 import ItemCard from "./ItemCard";
- 
-const ItemList = ({Items}) => {
+
+const ItemList = ({ item }) => {
   return (
-    < div style = {{ border: 'solid #1f242d 2px' }}> { Items === undefined ? null : Items.map(<ItemCard key={Items.id} itemData={Items}/>) }</div >
-  )
+    < div style={{ border: 'solid #1f242d 2px' }}>
+
+      {item.map((i) => (
+        <ItemCard key={i.id} list={i} />
+      ))}
+    </div >
+  );
 }
 
 export default ItemList 

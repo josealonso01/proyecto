@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContextProvider';
 import ItemCount from './ItemCount';
 
-
 export default function ItemDetail({ detailItem }) {
     const { addToCart } = useCartContext();
     const [end, SetEnd] = useState(false);
@@ -22,7 +21,7 @@ export default function ItemDetail({ detailItem }) {
                 <div>
                     <h1 className="text-5xl font-bold"> {detailItem.name} </h1>
                     <p className="py-6"> {detailItem.detailText} </p>
-                    {end ? (<Link to='/cart'> <button className="btn btn-secondary">Terminar Compra</button></Link>) : (<ItemCount initial={1} stock={detailItem.stock} onAdd={handleOnAdd}/>)} 
+                    {end ? (<Link to='/cart'> <button className="btn btn-secondary">Terminar Compra</button></Link>) : (<ItemCount initial={1} key={detailItem.id} stock={detailItem.stock} onAdd={handleOnAdd} />)}
                 </div>
             </div>
         </div>
