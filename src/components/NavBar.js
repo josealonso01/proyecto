@@ -10,9 +10,9 @@ const NavBar = () => {
                     <Link to='/' className='btn btn-ghost normal-case text-xl'> Bebe a Bordo</Link>
                     <div className="flex-none">
                         <ul className="menu menu-horizontal p-0">
-                            <Link to='/category/banquito'><li>Banquitos</li></Link>
-                            <Link to='/category/cuadro'><li>Cuadros</li></Link>
-                            <Link to='/category/muñeco'><li>Muñecos</li></Link>
+                            <Link to='/category/banquito'><li className='px-8 '>Banquitos</li></Link>
+                            <Link to='/category/cuadro'><li className='px-8 '>Cuadros</li></Link>
+                            <Link to='/category/muñeco'><li className='px-8 '>Muñecos</li></Link>
                         </ul>
                     </div>
                 </div>
