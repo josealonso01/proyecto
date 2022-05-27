@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import ItemList from "./ItemList";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { collection, CollectionReference, getDocs, getFirestore, query, QuerySnapshot, where } from "firebase/firestore";
 
-const ItemListContainer = ({category}) => {
+const ItemListContainer = ({ category }) => {
+
     const [Items, setItems] = useState()
-    const [end, SetEnd] = useState(false);
+    const [end, SetEnd] = useState(true);
+
     useEffect(() => {
         getItems()
         SetEnd(true)
@@ -12,27 +14,14 @@ const ItemListContainer = ({category}) => {
 
     const getItems = () => {
         const db = getFirestore()
-        const itemCollection = collection(db, 'items')
-        getDocs(itemCollection).then(snapshot => {
-            if (snapshot.size > 0){
-                const ids = snapshot.docs.map(d => d.id).join(',')
-                console.log('ids', ids);
-                const itemsData = snapshot.docs.map(d => ({'id': d.id, ... d.data()}))
-                console.log(itemsData);
-                setItems(itemsData)
-                if (category === undefined){
-                    console.log('category indefinida');
-                }else{
-                    console.log('categoria definida');
-                }
-            }
+        const q = query(collection(db,'items'), where('category', '==', 'undefined'))
+        getDocs(q).then(snapshot => {
+           setItems (snapshot.docs.map((doc) => ({id : doc.id, ...doc.data()})))
         })
-
-
     }
-
     return (
-        <>{end ? <h1>Cargando...</h1> : <ItemList Items={Items} ></ItemList>}</>
+        <>{end === false ? <h1>Cargando...</h1> : <ItemList Items={Items} ></ItemList>}</>
     )
 }
+
 export default ItemListContainer
