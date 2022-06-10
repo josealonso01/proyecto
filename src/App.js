@@ -5,20 +5,22 @@ import ListPage from './pages/ListPage';
 import DetailPage from './pages/DetailPage';
 import CartContextProvider, { CartContext } from './context/CartContextProvider';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 
 function App() {
   return (
     <CartContextProvider>
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path='/cart' element={<CartPage/>}/>
-        <Route path='/' element={<ListPage/>}/>
-        <Route path='/category/:category' element={<ListPage/>}/>
-        <Route path='/item/:id' element={<DetailPage/>}/>
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/cart' element={<CartPage />} />
+          <Route path='/' element={<ListPage />} />
+          <Route path='/category/:category' element={<ListPage />} />
+          <Route path='/item/:id' element={<DetailPage />} />
+          <Route path='/checkout' element={<CheckoutPage/>} />
+        </Routes>
+      </BrowserRouter>
     </CartContextProvider>
   )
 }

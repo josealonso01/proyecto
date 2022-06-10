@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { CartContext, useCartContext } from '../context/CartContextProvider'
 import CartItem from './CartItem'
+import Checkout from './Checkout'
 
 const Cart = () => {
   const cartContext = useCartContext(CartContext)
@@ -8,21 +10,26 @@ const Cart = () => {
   return (
     <section className="list-cart-container">
       {cartList ? (cartList.map(product => {
-        return (<CartItem key={product.id}
-          item={product}
-          calculatePrice={calculatePrice}
-          removeItem={removeItem}
-        />);
+        return [
+          <CartItem key={product.id}
+            item={product}
+            calculatePrice={calculatePrice}
+            removeItem={removeItem}
+          />,
+        ];
       }))
         : <p>cargando productos</p>
 
       }
       {cartList.length ? (
         <div className='space-y-4 space-x-4 mx-8'>
+
           <div className='indicator-item badge badge-secondary p-8 m-8'>
             Total:$ {calculatePrice()}
           </div>
-          <br></br>
+          <Link to='/checkout' className='indicator-item badge badge-secondary p-8 m-8'>
+            CLICK PARA COMPLETAR FORMULARIO DE ENVIO
+          </Link>
           <button
             className="btn gap-2"
             onClick={deleteItem}
@@ -30,6 +37,7 @@ const Cart = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg> Vaciar Carrito
           </button>
+
         </div>)
         : <div className="alert alert-warning shadow-lg">
           <div>
